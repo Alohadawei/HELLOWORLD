@@ -1,0 +1,98 @@
+#include<iostream>
+using namespace std;
+template<typename T>
+void Fun(T a)
+{
+	a();
+}
+template<typename T>
+class People
+{
+public:
+	People(){}
+	~People(){}
+	virtual T operator()() = 0;
+	/*{
+
+		cout<<"this is dad class ()"<<endl;
+	}*/
+};
+template<typename T>
+class Head :public People<T>
+{
+public:
+	Head(){}
+	~Head(){}
+	virtual T operator()()
+	{
+		T a = 0;
+		cout<<"head ()"<<endl;
+		return a;
+	}
+
+};
+
+template<typename T>
+class Hand :public People<T>
+{
+public:
+	Hand(){}
+	~Hand(){}
+	virtual T operator()()
+	{
+		T a = 0;
+		cout<<"hand ()"<<endl;
+		return a;
+	}
+
+};
+int main()
+{
+	string s = "helll saassa asada ";
+	char e[19] = "welll saassa asada";
+	char d[11] = "helll saas";
+	char c[15] = "helll saassa a";
+	const char b[25] = "welll saassa asada sss00";
+	const char a[16] = "helll saassa as";
+	int addr = (int)(&e);
+	int aaa =(int) &a[0];
+	int aaad = (int) &a[1];
+	int len0 =(int)(e) -(int)(d); //9
+	int len1 =(d) -(c); //13
+	int len2 =(int)(c) -(int)(b); //11
+	int len3 =(b) -(a); // 8
+	cout <<"size of a"<<sizeof(d)<<"  "<<sizeof(c)<<endl;
+
+	cout<<s.size()<<endl;
+	cout<<s.length()<<endl;
+	const char* str =  s.data();
+	cout << a << endl;
+	cout << a[20]<<endl;
+	cout << a[21]<<endl;
+	cout << a[22]<<endl;
+	cout << a[23]<<endl;
+	cout << a[24]<<endl;
+	cout << a[25]<<endl;
+	cout << a[26]<<endl;
+	cout << a[27]<<endl;
+	cout << a[28]<<endl;
+	cout << a[29]<<endl;
+	cout << a[30]<<endl;
+	cout << a[31]<<endl;
+	cout << a[32]<<endl;
+	cout << a[33]<<endl;
+	cout << a[34]<<endl;
+	cout << a[35]<<endl;
+	cout << a[36]<<endl;
+	cout << a[37]<<endl;
+	cout<<""<<sizeof(string)<<endl;
+	auto j = 01;
+	auto i = j;
+	//People<int> speo;
+	Head<double> shead;
+	Hand<int> shand;
+	//Fun(speo);
+	Fun(shead);
+	Fun(shand);
+	system("pause");
+}
